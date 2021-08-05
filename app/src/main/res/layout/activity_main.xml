@@ -39,27 +39,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="De"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/spinner"
-        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.224" />
+        app:layout_constraintVertical_bias="0.241" />
 
     <TextView
         android:id="@+id/tv_to"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:padding="5dp"
         android:text="Para"
         app:layout_constraintEnd_toStartOf="@+id/spinner2"
-        app:layout_constraintHorizontal_bias="0.201"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="@+id/tv_from"
         app:layout_constraintTop_toBottomOf="@+id/tv_from" />
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="296dp"
+        android:layout_width="283dp"
         android:layout_height="31dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_from"
@@ -69,8 +71,8 @@
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="296dp"
-        android:layout_height="30dp"
+        android:layout_width="277dp"
+        android:layout_height="33dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_to"
         app:layout_constraintEnd_toEndOf="parent"

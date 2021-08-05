@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
     private var getApiData = GetApiData.getInstance()
     private var repository = Repository(getApiData)
-    private lateinit var spinner: Spinner
+    private lateinit var spinner1: Spinner
     private lateinit var spinner2: Spinner
     private lateinit var editText: EditText
     private lateinit var button: Button
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     initializeViewModel()
 
-    spinner = findViewById(R.id.spinner)
+    spinner1 = findViewById(R.id.spinner)
     spinner2 = findViewById(R.id.spinner2)
     editText = findViewById(R.id.editText)
     button = findViewById(R.id.button)
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         if (validation){
             Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
         }else{
-            val convertFrom = spinner.selectedItem.toString()
+            val convertFrom = spinner1.selectedItem.toString()
             val convertTo = spinner2.selectedItem.toString()
             val convertedValue = viewModel.convertCurrency(convertFrom, convertTo, value.toDouble(), listQuotes)
             val df = DecimalFormat("#.##")
@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, arrayList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
+        spinner1.adapter = adapter
         spinner2.adapter = adapter
     }
 
