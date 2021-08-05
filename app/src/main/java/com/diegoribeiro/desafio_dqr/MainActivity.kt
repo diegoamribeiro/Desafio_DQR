@@ -12,7 +12,6 @@ import com.diegoribeiro.desafio_dqr.utils.Constants.Companion.CALCULATED_RESULT
 import com.diegoribeiro.desafio_dqr.utils.Constants.Companion.CALCULATED_TO
 import com.diegoribeiro.desafio_dqr.utils.Constants.Companion.CALCULATED_VALUE
 import com.diegoribeiro.desafio_dqr.view.MainViewModel
-import com.diegoribeiro.desafiodqr.data.api.GetApiData
 import com.diegoribeiro.desafiodqr.data.api.model.ListCurrencies
 import com.diegoribeiro.desafiodqr.data.api.model.ListQuotes
 import java.text.DecimalFormat
@@ -20,8 +19,7 @@ import java.text.DecimalFormat
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
-    private var getApiData = GetApiData.getInstance()
-    private var repository = Repository(getApiData)
+    private var repository = Repository()
     private lateinit var spinner1: Spinner
     private lateinit var spinner2: Spinner
     private lateinit var editText: EditText
@@ -42,7 +40,6 @@ class MainActivity : AppCompatActivity() {
 
     setupObservers()
     setupListeners()
-
     }
 
     private fun setupListeners() {
