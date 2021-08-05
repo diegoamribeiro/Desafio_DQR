@@ -11,6 +11,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.diegoribeiro.desafio_dqr.data.repository.Repository
+import com.diegoribeiro.desafio_dqr.utils.Constants.Companion.CALCULATED_FROM
+import com.diegoribeiro.desafio_dqr.utils.Constants.Companion.CALCULATED_RESULT
+import com.diegoribeiro.desafio_dqr.utils.Constants.Companion.CALCULATED_TO
 import com.diegoribeiro.desafio_dqr.utils.Constants.Companion.CALCULATED_VALUE
 import com.diegoribeiro.desafio_dqr.view.MainViewModel
 import com.diegoribeiro.desafiodqr.data.api.GetApiData
@@ -52,8 +55,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun passData(value: String){
+    private fun passData(result: String, fromCurrency: String, toCurrency:String, value: String){
         val intent = Intent(this, ResultActivity::class.java)
+        intent.putExtra(CALCULATED_FROM, fromCurrency)
+        intent.putExtra(CALCULATED_TO, toCurrency)
+        intent.putExtra(CALCULATED_RESULT, result)
         intent.putExtra(CALCULATED_VALUE, value)
         startActivity(intent)
     }
@@ -68,8 +74,8 @@ class MainActivity : AppCompatActivity() {
             val convertTo = spinner2.selectedItem.toString()
             val convertedValue = viewModel.convertCurrency(convertFrom, convertTo, value.toDouble(), listQuotes)
             val df = DecimalFormat("#.##")
-            stringValue = "$value $convertFrom to $convertTo = $df.format($convertedValue)"
-            passData(stringValue)
+            stringValue = "$value $convertFrom to $convertTo = "+ df.format(convertedValue)
+            passData(convertedValue.toString(), fromCurrency = convertFrom, toCurrency = convertTo, value= value)
 
         }
 
@@ -84,6 +90,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun populateSpinners(list: ListCurrencies){
         val arrayList = arrayListOf<String>()
+
+        list.currencies.forEach {
+            val spinnerEntry = "${it.key} - ${it.value}"
+            arrayList.add(spinnerEntry)
+        }
+
         list.currencies.keys.forEach { key ->
             arrayList.add(key)
         }
@@ -94,7 +106,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupObservers(){
-        
+
         viewModel.listQuotesLiveData.observe(this, Observer{
             callConvertCurrency(it)
         })

@@ -4,18 +4,134 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".ResultActivity">
+
+    <TextView
+        android:id="@+id/tvLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conversão"
+        android:textColor="#3F51B5"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.138" />
+
+    <TextView
+        android:id="@+id/tvValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Valor: "
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.375"
+        />
+
+    <TextView
+        android:id="@+id/tvFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="De: "
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.438"
+        tools:text="De" />
+
+    <TextView
+        android:id="@+id/tvTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Para: "
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFrom"
+        tools:text="Para" />
 
     <TextView
         android:id="@+id/tvResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="92dp"
+        android:text="Result: "
+        android:textColor="#3F51B5"
         android:textSize="20sp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Valor"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvFrom" />
+
+    <TextView
+        android:id="@+id/tvResultResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:textColor="#4CAF50"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvFrom"
+        app:layout_constraintTop_toTopOf="@+id/tvValue"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Valor" />
+
+    <TextView
+        android:id="@+id/tvResultFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:textColor="#4CAF50"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvFrom"
+        app:layout_constraintTop_toTopOf="@+id/tvFrom"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Valor" />
+
+
+
+
+
+    <TextView
+        android:id="@+id/tvResultTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:textColor="#4CAF50"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvTo"
+        app:layout_constraintTop_toTopOf="@+id/tvTo"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Valor" />
+
+    <TextView
+        android:id="@+id/tvResultValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:textColor="#4CAF50"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvFrom"
+        app:layout_constraintTop_toTopOf="@+id/tvResult"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Valor" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

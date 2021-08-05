@@ -76,7 +76,7 @@ class MainViewModel constructor(private val repository: Repository): ViewModel()
     }
 
     private fun convertToDollar(convertFrom: String, value: Double, listQuotes: ListQuotes):Double{
-        val currency = "USD$convertFrom"
+        val currency = "USD${convertFrom.substring(0,3)}"
         val conversionQuote = listQuotes.quotes[currency]
         val converted = value / conversionQuote!!
         return converted
@@ -84,7 +84,7 @@ class MainViewModel constructor(private val repository: Repository): ViewModel()
 
     fun convertCurrency(convertFrom: String, convertTo: String, value: Double, listQuotes: ListQuotes): Double{
         val convertedToDollar = convertToDollar(convertFrom, value, listQuotes)
-        val currency = "USD$convertTo"
+        val currency = "USD${convertTo.substring(0,3)}"
         val conversionQuote = listQuotes.quotes[currency]
         val converted = convertedToDollar * conversionQuote!!
         return converted
@@ -97,10 +97,5 @@ class MainViewModel constructor(private val repository: Repository): ViewModel()
         }
     }
 
-    sealed class CurrencyEvent {
-        class Success(val resultText: String): CurrencyEvent()
-        class Failure(val errorText: String): CurrencyEvent()
-        object Loading : CurrencyEvent()
-        object Empty : CurrencyEvent()
-    }
+
 }
