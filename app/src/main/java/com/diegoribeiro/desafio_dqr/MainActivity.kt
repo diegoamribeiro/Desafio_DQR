@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(CALCULATED_RESULT, result)
         intent.putExtra(CALCULATED_VALUE, value)
         startActivity(intent)
+
     }
 
     private fun callConvertCurrency(listQuotes: ListQuotes){
