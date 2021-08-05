@@ -90,9 +90,6 @@ class MainActivity : AppCompatActivity() {
             arrayList.add(spinnerEntry)
         }
 
-        list.currencies.keys.forEach { key ->
-            arrayList.add(key)
-        }
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, arrayList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
