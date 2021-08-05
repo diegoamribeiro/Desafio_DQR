@@ -3,13 +3,9 @@ package com.diegoribeiro.desafio_dqr
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.*
-import androidx.core.view.isEmpty
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.diegoribeiro.desafio_dqr.data.repository.Repository
 import com.diegoribeiro.desafio_dqr.utils.Constants.Companion.CALCULATED_FROM
 import com.diegoribeiro.desafio_dqr.utils.Constants.Companion.CALCULATED_RESULT
@@ -76,9 +72,7 @@ class MainActivity : AppCompatActivity() {
             val df = DecimalFormat("#.##")
             stringValue = "$value $convertFrom to $convertTo = "+ df.format(convertedValue)
             passData(convertedValue.toString(), fromCurrency = convertFrom, toCurrency = convertTo, value= value)
-
         }
-
     }
 
     private fun initializeViewModel(){
@@ -115,14 +109,6 @@ class MainActivity : AppCompatActivity() {
             populateSpinners(it)
 
         })
-    }
-
-    private fun showProgress(show: Boolean){
-        val progress = findViewById<ProgressBar>(R.id.progressLoading)
-        if (show){
-            progress.visibility = View.VISIBLE
-        }
-
     }
 }
 
