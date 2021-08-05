@@ -7,7 +7,6 @@ Neste desafio foi possível consumir a API CurrencyLayer para realizar a convers
 
 - MVVM
 - Live Data
-- Retrofit
 - Coroutines
 
 ## Running
